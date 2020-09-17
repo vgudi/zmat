@@ -31,7 +31,7 @@
 															<Input id="reason" maxLength="60" liveChange="reasonChange"></Input>
 														</form:fields>
 													</form:FormElement>
-													<form:FormElement label="Material Number">
+													<form:FormElement label="Material Number - Succ">
 														<form:fields>
 															<Input id="materialNumber" maxLength="18" liveChange="matnr" change="onMatChange"></Input>
 															<Input id="materialNumberExt" maxLength="40" liveChange="matnr" change="onMatExtChange"></Input>
