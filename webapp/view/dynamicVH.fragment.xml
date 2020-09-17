@@ -1,0 +1,7 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
+	<SelectDialog noDataText="No Products Found" search=".onSearch" confirm=".onSelectdataDynamicVH"
+		cancel=".onValueHelpDialogClose" showClearButton="true" items="{ path: 'matreq>/DomainValuesSet' }">
+		<StandardListItem  title="{matreq>DomvalueL}" description="{matreq>Ddtext}"  iconDensityAware="false"
+			iconInset="false" type="Active"/>
+	</SelectDialog>
+</core:FragmentDefinition>

@@ -1,0 +1,61 @@
+{
+	"welcomeFile": "/webapp/index.html",
+	"routes": [{
+		"path": "/webapp/resources/ui/s2p/mm/im/lib/materialmaster",
+		"target": {
+			"type": "destination",
+			"name": "FEX_050",
+			"entryPath": "/sap/bc/ui5_ui5/sap/MMIMREUSEMATS1"
+		},
+		"description": "Material Master Reuse Library"
+	}, {
+		"path": "/resources/ui/s2p/mm/im/lib/materialmaster",
+		"target": {
+			"type": "destination",
+			"name": "FEX_050",
+			"entryPath": "/sap/bc/ui5_ui5/sap/MMIMREUSEMATS1"
+		},
+		"description": "Material Master Reuse Library"
+	}, {
+		"path": "/resources",
+		"target": {
+			"type": "service",
+			"name": "sapui5",
+			"entryPath": "/resources"
+		},
+		"description": "SAPUI5 Resources"
+	}, {
+		"path": "/test-resources",
+		"target": {
+			"type": "service",
+			"name": "sapui5",
+			"entryPath": "/test-resources"
+		},
+		"description": "SAPUI5 Resources"
+	}, {
+		"path": "/webapp/resources",
+		"target": {
+			"type": "service",
+			"name": "sapui5",
+			"entryPath": "/resources"
+		},
+		"description": "SAPUI5 Resources"
+	}, {
+		"path": "/webapp/test-resources",
+		"target": {
+			"type": "service",
+			"name": "sapui5",
+			"entryPath": "/test-resources"
+		},
+		"description": "SAPUI5 Test Resources"
+	}, {
+		"path": "/sap/opu/odata",
+		"target": {
+			"type": "destination",
+			"name": "FEX_050",
+			"entryPath": "/sap/opu/odata"
+		},
+		"description": "Nutrien Azure S/4 1909 Sandbox 050"
+	}],
+	"sendWelcomeFileRedirect": true
+}

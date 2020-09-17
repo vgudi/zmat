@@ -1,0 +1,46 @@
+<core:FragmentDefinition controllerName="inforUI.controller.Upload" xmlns:u="sap.ui.unified" xmlns="sap.m" xmlns:form="sap.ui.layout.form"
+	xmlns:core="sap.ui.core">
+	<Dialog id="helloDialogRole" afterClose="onAfterClosePopup" title="Material Request">
+		<content>
+			<form:SimpleForm>
+				<form:content>
+					<VBox>
+						<Label text="Line of Business:" required="true" labelFor="idComboBoxLob"/>
+				<!--		<Select-->
+				<!--	forceSelection="false"-->
+				<!--	selectedKey="{matreq>/Valpos}"-->
+				<!--items="{ path: 'matreq>/DomainValuesSet', filters: {path: 'Domname', operator: 'EQ', value1: 'ZLOB'} }">-->
+				<!--	<core:ListItem key="{matreq>Valpos}" text="{matreq>Ddtext}"/>-->
+				<!--</Select>-->
+						<ComboBox id="idComboBoxLob" items="{ path: 'matreq>/DomainValuesSet', filters: {path: 'Domname', operator: 'EQ', value1: 'ZLOB'} }">
+							<core:Item key="{matreq>DomvalueL}" text="{matreq>Ddtext}" additionalText="{matreq>DomvalueL}"/>
+						</ComboBox>
+						<!--<ComboBox id="idComboBoxLob" showSecondaryValues="true" filterSecondaryValues="true" value="{/comboBoxValue}" selectedKey="{/comboBoxKey}">-->
+						<!--	<core:ListItem key="M" text="Manufacturing"/>-->
+						<!--	<core:ListItem key="R" text="Retail"/>-->
+						<!--</ComboBox>-->
+						<Label text="Region:"  required="false" labelFor="idComboBoxRegion"/>
+						<ComboBox change="onRegionChanges" id="idComboBoxRegion" items="{ path: 'matreq>/DomainValuesSet', filters: {path: 'Domname', operator: 'EQ', value1: 'ZLOBREGION'} }">
+							<core:Item key="{matreq>DomvalueL}" text="{matreq>Ddtext}" additionalText="{matreq>DomvalueL}"/>
+						</ComboBox>
+						<!--<ComboBox id="idComboBoxRegion1" showSecondaryValues="true" filterSecondaryValues="true" value="{/comboBoxValue}"-->
+						<!--	selectedKey="{/comboBoxKey}">-->
+						<!--	<core:ListItem key="US" text="United States"/>-->
+						<!--	<core:ListItem key="CN" text="Caneda"/>-->
+						<!--</ComboBox>-->
+						<Label text="Material Type:" required="true" labelFor="idComboBoxMtart"/>
+						<!--<Input id="idComboBoxMtart"/>-->
+						<ComboBox id="idComboBoxMtart" showSecondaryValues="true" filterSecondaryValues="true" value="{/comboBoxValue}" selectedKey="{/comboBoxKey}"
+							items="{ path: 'matreq>/RequestorFilterSet' }">
+							<core:ListItem key="{matreq>Mtart}" text="{matreq>Mtbez}" additionalText="{matreq>Mtart}"/>
+						</ComboBox>
+					</VBox>
+				</form:content>
+			</form:SimpleForm>
+		</content>
+		<buttons>
+			<Button text="Go" press="onGo"/>
+			<Button text="Cancel" press="onCancel"/>
+		</buttons>
+	</Dialog>
+</core:FragmentDefinition>

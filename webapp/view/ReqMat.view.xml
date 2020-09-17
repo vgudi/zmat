@@ -1,0 +1,210 @@
+<mvc:View controllerName="mat.ZMDG_REQ_MAT.controller.ReqMat" xmlns:form="sap.ui.layout.form" xmlns:l="sap.ui.layout" xmlns:ca="sap.ca.ui"
+	xmlns:mvc="sap.ui.core.mvc" xmlns:core="sap.ui.core" displayBlock="true" xmlns="sap.m">
+	<Shell id="shell">
+		<App id="app">
+			<pages>
+				<Page id="page" visible="false" titleAlignment="Center" title="Request New Material">
+					<content>
+						<!--<ObjectHeader id="Header" title="New Material"></ObjectHeader>-->
+						<!-- Extends the overview tile -->
+						<!--<VBox id="CommunicationSection">-->
+						<!--	<layoutData>-->
+						<!--		<l:GridData span="L12 M12 S12"/>-->
+						<!--	</layoutData>-->
+						<!--</VBox>-->
+					
+						<IconTabBar select="onSelect">
+							<!-- showSelection="false" expanded="false"> -->
+							<items>
+								<IconTabFilter id="createMaterial" key="create" icon="sap-icon://documents" text="Form">
+									<form:Form class="sapUiSizeCompact" editable="true" maxContainerCols="1" minWidth="1024" layout="ResponsiveGridLayout" labelSpanL="3"
+										labelSpanM="3" emptySpanL="4" emptySpanM="4" columnsL="1" columnsM="1">
+										<form:layout>
+											<form:ResponsiveGridLayout labelSpanXL="4" labelSpanL="4" labelSpanM="12" labelSpanS="12" adjustLabelSpan="false" emptySpanXL="0"
+												emptySpanL="0" emptySpanM="0" emptySpanS="0" columnsXL="2" columnsL="2" columnsM="2"/>
+										</form:layout>
+										<form:formContainers>
+											<form:FormContainer class="sapUiSizeCompact" tooltip="" title="">
+												<form:formElements>
+													<form:FormElement label="Reason">
+														<form:fields>
+															<Input id="reason" maxLength="60" liveChange="reasonChange"></Input>
+														</form:fields>
+													</form:FormElement>
+													<form:FormElement label="Material Number">
+														<form:fields>
+															<Input id="materialNumber" maxLength="18" liveChange="matnr" change="onMatChange"></Input>
+															<Input id="materialNumberExt" maxLength="40" liveChange="matnr" change="onMatExtChange"></Input>
+														</form:fields>
+													</form:FormElement>
+													<form:FormElement label="Material Description">
+														<form:fields>
+															<Input id="Description" maxLength="40" liveChange="descChange" change="onDescChange"></Input>
+														</form:fields>
+													</form:FormElement>
+													<form:FormElement label="Base Unit of Measure">
+														<form:fields>
+															<Input id="BaseUnitOfMeasure" maxLength="3" valueHelpRequest="onUomVH" showValueHelp="true" liveChange="UomChange" change="onUomChange"
+																select="onUomChange">
+																<layoutData>
+																	<l:GridData span="L2 M2 S4"/>
+																</layoutData>
+															</Input>
+															<Input id="UOMDesc" maxLenght="25" enabled="false"></Input>
+														</form:fields>
+													</form:FormElement>
+													<form:FormElement label="Additional Information">
+														<form:fields>
+															<TextArea id="otherInformation" rows="3" placeholder="{i18n>AI_PLACEHOLDER}" change="onIntCmtChange"></TextArea>
+														</form:fields>
+													</form:FormElement>
+												</form:formElements>
+											</form:FormContainer>
+											<form:FormContainer visible="true" class="sapUiSizeCompact" tooltip="" title="">
+												<form:formElements></form:formElements>
+											</form:FormContainer>
+										</form:formContainers>
+									</form:Form>
+									<!--<form:SimpleForm id="matForm" editable="true" maxContainerCols="1" minWidth="1024" layout="ResponsiveGridLayout" class="sapUiSizeCompact"-->
+									<!--	labelSpanXL="4" labelSpanL="4" labelSpanM="12" labelSpanS="12" adjustLabelSpan="false" emptySpanXL="0" emptySpanL="0" emptySpanM="0"-->
+									<!--	emptySpanS="0" columnsXL="2" columnsL="2" columnsM="2">-->
+									<!--	<form:formContainers>-->
+									<!--		<form:FormContainer class="sapUiSizeCompact" tooltip="{matreq>Groupid}" title="{matreq>Groupttl}">-->
+									<!--			<form:formElements>-->
+									<!--				<form:FormElement label="Web page of the contact">-->
+									<!--					<form:fields>-->
+									<!--						<Input value="{Url}"/>-->
+									<!--					</form:fields>-->
+									<!--				</form:FormElement>-->
+									<!--				<form:FormElement label="Web page of the contact">-->
+									<!--					<form:fields>-->
+									<!--						<Input value="{Url}"/>-->
+									<!--					</form:fields>-->
+									<!--				</form:FormElement>-->
+									<!--			</form:formElements>-->
+									<!--		</form:FormContainer>-->
+									<!--	</form:formContainers>-->
+									<!--<form:content>-->
+									<!--	<j ,b text="{i18n>REASON}" required="false"></Label>-->
+									<!--	<Input id="reason" maxLength="60" liveChange="reasonChange"></Input>-->
+									<!--	<Label text="{i18n>MATERIAL_NUMBER}" required="false"></Label>-->
+									<!--	<Input id="materialNumber" maxLength="18" liveChange="matnr" change="onMatChange"></Input>-->
+									<!--	<Input id="materialNumberExt" maxLength="40" liveChange="matnr" change="onMatExtChange"></Input>-->
+									<!--	<Label text="{i18n>MATERIAL_DESCRIPTION}" required="true"></Label>-->
+									<!--	<Input id="Description" maxLength="40" liveChange="descChange" change="onDescChange"></Input>-->
+									<!--	<Label text="{i18n>BASE_UNIT_OF_MEASURE}" required="true"></Label>-->
+									<!--	<Input id="BaseUnitOfMeasure" maxLength="3" valueHelpRequest="onUomVH" showValueHelp="true" liveChange="UomChange" change="onUomChange"-->
+									<!--		select="onUomChange">-->
+									<!--		<layoutData>-->
+									<!--			<l:GridData span="L2 M2 S4"/>-->
+									<!--		</layoutData>-->
+									<!--	</Input>-->
+									<!--	<Input id="UOMDesc" maxLenght="25" enabled="false"></Input>-->
+									<!--	<Label text="{i18n>ADDITIONAL_INFORMATION}"></Label>-->
+									<!--	<TextArea id="otherInformation" rows="3" placeholder="{i18n>AI_PLACEHOLDER}" change="onIntCmtChange"></TextArea>-->
+									<!--</form:content>-->
+									<!--</form:SimpleForm>-->
+									<form:Form id="FormDisplay354" class="sapUiSizeCompact"
+										bindingContexts="{ path: 'matreq>/RequestorGroupsSet', sorter: { path: 'matreq>Groupid' } }"
+										formContainers="{ path: 'matreq>/RequestorGroupsSet' , sorter: { path: 'matreq>Groupid' } }" editable="true" maxContainerCols="1"
+										minWidth="1024" layout="ResponsiveGridLayout" labelSpanL="3" labelSpanM="3" emptySpanL="4" emptySpanM="4" columnsL="1" columnsM="1">
+										<form:layout>
+											<form:ResponsiveGridLayout labelSpanXL="4" labelSpanL="4" labelSpanM="12" labelSpanS="12" adjustLabelSpan="false" emptySpanXL="0"
+												emptySpanL="0" emptySpanM="0" emptySpanS="0" columnsXL="2" columnsL="2" columnsM="2"/>
+										</form:layout>
+										<form:formContainers>
+											<!--<form:FormContainer class="sapUiSizeCompact" tooltip="{matreq>Groupid}" title="{matreq>Groupttl}">-->
+											<!--<form:formElements>-->
+											<!--	<form:FormElement label="Web page of the contact">-->
+											<!--		<form:fields>-->
+											<!--			<Input value="{Url}"/>-->
+											<!--		</form:fields>-->
+											<!--	</form:FormElement>-->
+											<!--</form:formElements>-->
+											<!--</form:FormContainer>-->
+											<form:FormContainer class="sapUiSizeCompact" tooltip="{matreq>Groupid}" title="{matreq>Groupttl}">
+												<!--<form:formElements>-->
+												<!--	<form:FormElement  label="Web page of the contact">-->
+												<!--		<form:fields>-->
+												<!--			<Input value="{Url}"/>-->
+												<!--		</form:fields>-->
+												<!--	</form:FormElement>-->
+												<!--</form:formElements>-->
+											</form:FormContainer>
+										</form:formContainers>
+									</form:Form>
+								</IconTabFilter>
+								<IconTabFilter id="search" key="search" select="onSelect" icon="sap-icon://duplicate" text="Duplicate">
+									<l:VerticalLayout width="100%">
+										<l:content>
+											<Text id="description" class="marginAll"/>
+											<Table id="Results" mode="{device>/listMode}" select="_handleSelect" width="100%">
+												<headerToolbar>
+													<Toolbar>
+														<SearchField id="searchText" placeholder="{i18n>SEARCH_PH}" width="100%" search="onRefresh" tooltip="{i18n>SEARCH_TOOLTIP}"
+															showRefreshButton="true" refreshButtonTooltip="{i18n>REFRESH_TOOLTIP}" enableFilterMode="true" liveChange="onRefresh"></SearchField>
+														<Button id="persIcon" icon="sap-icon://person-placeholder" tap="onPersoButtonPressed" tooltip="{i18n>PERSONALIZE_TOOLTIP}"/>
+													</Toolbar>
+												</headerToolbar>
+												<columns>
+													<Column id="MaterialCol">
+														<Label text='{i18n>MATERIAL}'></Label>
+													</Column>
+													<Column id="UnitOfMeasureCol" hAlign="Center">
+														<Label text='{i18n>BASE_UNIT_OF_MEASURE}'></Label>
+													</Column>
+													<Column id="MaterialTypeCol" hAlign="Center">
+														<Label text='{i18n>MATERIAL_TYPE}'></Label>
+													</Column>
+													<Column id="IndSecCol" hAlign="Center">
+														<Label text='{i18n>INDUSTRY_SEC}'></Label>
+													</Column>
+													<Column id="MatGrpCol" hAlign="Center">
+														<Label text='{i18n>MAT_GROUP}'></Label>
+													</Column>
+													<Column id="RankCol" hAlign="Right">
+														<Label text='{i18n>RANK}'></Label>
+													</Column>
+													<!-- Extends the Duplicate search table -->
+													<core:ExtensionPoint name="extTable"></core:ExtensionPoint>
+												</columns>
+											</Table>
+											<PullToRefresh id="pullToRefresh" visible="{device>/isTouch}" refresh="onRefresh"/>
+										</l:content>
+									</l:VerticalLayout>
+								</IconTabFilter>
+								<IconTabFilter id="attachments" key="act" select="onSelect" icon="sap-icon://attachment" text="Attachments">
+									<content>
+										<UploadCollection id="fileupload" uploadUrl="/sap/opu/odata/sap/ZMDG_MATERIAL_REQ_SRV/Attachments" maximumFilenameLength="200"
+											multiple="false" showSeparators="None" items="{json>/dataitems}" uploadComplete="onUploadFile" change="onBeforeUploadFile"
+											uploadTerminated="uploadTerminated">
+											<UploadCollectionItem contributor="{json>contributor}" enableEdit="{json>enableEdit}" enableDelete="{json>enableDelete}"
+												fileName="{json>filename}" mimeType="{json>mimeType}" documentId="{json>documentId}" visibleDelete="true" visibleEdit="false"
+												uploadedDate="{json>uploaded}" url="{json>url}"/>
+										</UploadCollection>
+										<!-- Extends the attachment -->
+										<core:ExtensionPoint name="extAttachments"></core:ExtensionPoint>
+									</content>
+								</IconTabFilter>
+								<!-- Extends the icon tabs -->
+								<core:ExtensionPoint name="extIconTabBarExtension"></core:ExtensionPoint>
+							</items>
+						</IconTabBar>
+					</content>
+					<footer>
+						<OverflowToolbar>
+							<content>
+								<Text id="lobId"/>
+								<Text id="matID"/>
+								<!--<Button press="onChangePopup" text="Change"/>-->
+								<ToolbarSpacer/>
+								<Button text="Submit" press="onSubmit"/>
+								<Button text="Cancel"/>
+							</content>
+						</OverflowToolbar>
+					</footer>
+				</Page>
+			</pages>
+		</App>
+	</Shell>
+</mvc:View>

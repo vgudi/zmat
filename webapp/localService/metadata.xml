@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="1.0" xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx"
+	xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:sap="http://www.sap.com/Protocols/SAPData">
+	<edmx:DataServices m:DataServiceVersion="2.0">
+		<Schema Namespace="ZMDG_MATERIAL_REQ_SRV" xml:lang="en" sap:schema-version="1" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+			<EntityType Name="SearchMaterial" sap:content-version="1">
+				<Key><PropertyRef Name="MaterialId"/></Key><Property Name="EntityType" Type="Edm.String" Nullable="false" MaxLength="9" sap:unicode="false" sap:label="Entity Type"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false"/><Property Name="Attribute" Type="Edm.String" Nullable="false" MaxLength="9" sap:unicode="false" sap:label="Attribute" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false"/><Property Name="CharacteristicValue" Type="Edm.String" Nullable="false" MaxLength="60" sap:unicode="false" sap:label="Characteristic Value"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false"/><Property Name="MaterialId" Type="Edm.String" Nullable="false" MaxLength="18" sap:unicode="false" sap:label="Material" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Description" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:label="Description"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="BaseUnitOfMeasure" Type="Edm.String" Nullable="false" MaxLength="3" sap:unicode="false" sap:label="Base Unit"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" sap:semantics="unit-of-measure"/><Property Name="IndustrySector" Type="Edm.String" Nullable="false" MaxLength="1" sap:unicode="false" sap:label="Industry Sector"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="MaterialType" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false" sap:label="Material type"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="MaterialGroup" Type="Edm.String" Nullable="false" MaxLength="9" sap:unicode="false" sap:label="Material Group"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Rank" Type="Edm.Decimal" Nullable="false" Precision="5" Scale="2" sap:unicode="false" sap:label="Rank" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="IndustrySectorDescription" Type="Edm.String" Nullable="false" MaxLength="25" sap:unicode="false" sap:label="Industry descr."
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="MaterialTypeDescription" Type="Edm.String" Nullable="false" MaxLength="25" sap:unicode="false" sap:label="Mat.Type Descr."
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="UOMDescription" Type="Edm.String" Nullable="false" MaxLength="30" sap:unicode="false" sap:label="UoM Text"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="MaterialGroupDescription" Type="Edm.String" Nullable="false" MaxLength="20" sap:unicode="false" sap:label="Matl Grp Desc."
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/></EntityType>
+			<EntityType Name="Attachment" m:HasStream="true" sap:content-version="1">
+				<Key><PropertyRef Name="FileName"/><PropertyRef Name="Guid"/></Key><Property Name="CreatedBy" Type="Edm.String" Nullable="false" MaxLength="12" sap:unicode="false" sap:label="User Name" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="MimeType" Type="Edm.String" Nullable="false" MaxLength="128" sap:unicode="false" sap:label="Mime Type" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="FileSize" Type="Edm.String" Nullable="false" MaxLength="15" sap:unicode="false" sap:label="Length of file"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="FileName" Type="Edm.String" Nullable="false" MaxLength="60" sap:unicode="false" sap:label="Description (Long)"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Guid" Type="Edm.Guid" Nullable="false" sap:unicode="false" sap:label="GUID" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/></EntityType>
+			<EntityType Name="Material" sap:LOAD_DERIVATION_EXISTS="" sap:allowed_length="18 " sap:is_lama="" sap:content-version="1">
+				<Key><PropertyRef Name="MaterialId"/></Key><Property Name="LongMaterialId" Type="Edm.String" Nullable="false" MaxLength="40" sap:IS_MATCH_PROFILE_ATTR="" sap:IS_MATCH_PROFILE_MAND=""
+					sap:unicode="false" sap:label="Material Number" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="AuthorizationGroup" Type="Edm.String" Nullable="false" MaxLength="4" sap:IS_MATCH_PROFILE_ATTR=""
+					sap:IS_MATCH_PROFILE_MAND="" sap:unicode="false" sap:label="AuthorizGroup" sap:creatable="false" sap:updatable="false" sap:sortable="false"
+					sap:filterable="false"/><Property Name="MaterialGroup" Type="Edm.String" Nullable="false" MaxLength="9" sap:IS_MATCH_PROFILE_ATTR="X" sap:IS_MATCH_PROFILE_MAND="X"
+					sap:unicode="false" sap:label="Material Group" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="IndustrySector" Type="Edm.String" MaxLength="1" sap:IS_MATCH_PROFILE_ATTR="X" sap:IS_MATCH_PROFILE_MAND="X"
+					sap:unicode="false" sap:label="Industry Sector" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="BaseUnitOfMeasure" Type="Edm.String" Nullable="false" MaxLength="3" sap:IS_MATCH_PROFILE_ATTR="X"
+					sap:IS_MATCH_PROFILE_MAND="" sap:unicode="false" sap:label="Base Unit" sap:creatable="false" sap:updatable="false" sap:sortable="false"
+					sap:filterable="false" sap:semantics="unit-of-measure"/><Property Name="MaterialType" Type="Edm.String" MaxLength="4" sap:IS_MATCH_PROFILE_ATTR="X" sap:IS_MATCH_PROFILE_MAND="X"
+					sap:unicode="false" sap:label="Material type" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Description" Type="Edm.String" Nullable="false" MaxLength="40" sap:IS_MATCH_PROFILE_ATTR="X" sap:IS_MATCH_PROFILE_MAND="X"
+					sap:unicode="false" sap:label="Description (medium)" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="MaterialId" Type="Edm.String" Nullable="false" MaxLength="18" sap:IS_MATCH_PROFILE_ATTR="" sap:IS_MATCH_PROFILE_MAND=""
+					sap:unicode="false" sap:label="Material" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><NavigationProperty Name="InternalComments" Relationship="ZMDG_MATERIAL_REQ_SRV.Material_InternalComment"
+					FromRole="FromRole_Material_InternalComment" ToRole="ToRole_Material_InternalComment"/></EntityType>
+			<EntityType Name="InternalComment" sap:content-version="1">
+				<Key><PropertyRef Name="MaterialId"/></Key><Property Name="Langucode" Type="Edm.String" Nullable="false" MaxLength="1" sap:IS_MATCH_PROFILE_ATTR="" sap:IS_MATCH_PROFILE_MAND=""
+					sap:unicode="false" sap:label="Language" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="MaterialId" Type="Edm.String" Nullable="false" MaxLength="18" sap:IS_MATCH_PROFILE_ATTR="" sap:IS_MATCH_PROFILE_MAND=""
+					sap:unicode="false" sap:label="Material" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Noteintcm" Type="Edm.String" sap:IS_MATCH_PROFILE_ATTR="" sap:IS_MATCH_PROFILE_MAND="" sap:unicode="false"
+					sap:label="Comment" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/></EntityType>
+			<EntityType Name="ChangeRequest" sap:content-version="1">
+				<Key><PropertyRef Name="ChangeRequestId"/></Key><Property Name="ChangeRequestType" Type="Edm.String" Nullable="false" MaxLength="8" sap:unicode="false" sap:label="Type of Chg. Request"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="RequestReason" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="Note" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="ChangeRequestId" Type="Edm.String" Nullable="false" MaxLength="12" sap:unicode="false" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><NavigationProperty Name="NAV_ChangeReuest_REQFILTER" Relationship="ZMDG_MATERIAL_REQ_SRV.ASN_ChangeReuest_REQFILTER"
+					FromRole="FromRole_ASN_ChangeReuest_REQFILTER" ToRole="ToRole_ASN_ChangeReuest_REQFILTER"/><NavigationProperty Name="NAV_ChangeReuest_FormsUI" Relationship="ZMDG_MATERIAL_REQ_SRV.ASN_ChangeReuest_FormsUI"
+					FromRole="FromRole_ASN_ChangeReuest_FormsUI" ToRole="ToRole_ASN_ChangeReuest_FormsUI"/><NavigationProperty Name="Materials" Relationship="ZMDG_MATERIAL_REQ_SRV.ChangeRequest_Material" FromRole="FromRole_ChangeRequest_Material"
+					ToRole="ToRole_ChangeRequest_Material"/><NavigationProperty Name="Guids" Relationship="ZMDG_MATERIAL_REQ_SRV.ChangeRequest_AttachmentMaster"
+					FromRole="FromRole_ChangeRequest_AttachmentMaster" ToRole="ToRole_ChangeRequest_AttachmentMaster"/></EntityType>
+			<EntityType Name="UOMValueHelp" sap:content-version="1">
+				<Key><PropertyRef Name="UnitOfMeasure"/></Key><Property Name="UnitOfMeasure" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="LongText" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/></EntityType>
+			<EntityType Name="AttachmentMaster" sap:content-version="1">
+				<Key><PropertyRef Name="UsmdCrequest"/></Key><Property Name="Guid" Type="Edm.Guid" Nullable="false" sap:unicode="false" sap:label="UUID" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="UsmdCrequest" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/></EntityType>
+			<EntityType Name="RequestorFilter" sap:content-version="1">
+				<Key><PropertyRef Name="Lob"/><PropertyRef Name="Mtart"/></Key><Property Name="Lob" Type="Edm.String" Nullable="false" MaxLength="2" sap:unicode="false" sap:label="Line of Business" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false"/><Property Name="Mtbez" Type="Edm.String" Nullable="false" MaxLength="25" sap:unicode="false" sap:label="Mat.Type Descr."
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Region" Type="Edm.String" Nullable="false" MaxLength="2" sap:unicode="false" sap:label="Region" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false"/><Property Name="Mtart" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false" sap:label="Material type" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false"/><NavigationProperty Name="NAV_REQFILTER_REQFORMUI" Relationship="ZMDG_MATERIAL_REQ_SRV.ASN_REQFILTER_REQFORMUI"
+					FromRole="FromRole_ASN_REQFILTER_REQFORMUI" ToRole="ToRole_ASN_REQFILTER_REQFORMUI"/></EntityType>
+			<EntityType Name="RequestorGroups" sap:content-version="1">
+				<Key><PropertyRef Name="Groupid"/></Key><Property Name="Groupid" Type="Edm.String" Nullable="false" MaxLength="3" sap:unicode="false" sap:label="Group ID" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Groupttl" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="GROUPTTL" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/></EntityType>
+			<EntityType Name="RequestorForms" sap:content-version="1">
+				<Key><PropertyRef Name="Fieldname"/><PropertyRef Name="Groupid"/><PropertyRef Name="FldPositionSeq"/></Key><Property Name="FldValue" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="FLD_VALUE" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="FldLength" Type="Edm.String" Nullable="false" MaxLength="6" sap:unicode="false" sap:label="No. of Characters"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Valhlptyp" Type="Edm.String" Nullable="false" MaxLength="1" sap:unicode="false" sap:label="Value Help Type"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="UsmdEntity" Type="Edm.String" Nullable="false" MaxLength="9" sap:unicode="false" sap:label="Entity Type"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Valhlp" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="VALHLP" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Fieldname" Type="Edm.String" Nullable="false" MaxLength="30" sap:unicode="false" sap:label="Field name"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Groupid" Type="Edm.String" Nullable="false" MaxLength="3" sap:unicode="false" sap:label="Group ID" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="FldPositionSeq" Type="Edm.String" Nullable="false" MaxLength="3" sap:unicode="false" sap:label="Field Position Seq"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="FldUiType" Type="Edm.String" Nullable="false" MaxLength="2" sap:unicode="false" sap:label="Field Type" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="FldUiProp" Type="Edm.String" Nullable="false" MaxLength="1" sap:unicode="false" sap:label="UI Property"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="FldLabel" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="FLD_LABEL" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="FldTooltip" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="FLD_TOOLTIP" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/></EntityType>
+			<EntityType Name="DomainValues" sap:content-version="1">
+				<Key><PropertyRef Name="Domname"/><PropertyRef Name="Valpos"/></Key><Property Name="Domname" Type="Edm.String" Nullable="false" MaxLength="30" sap:unicode="false" sap:label="Domain" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false"/><Property Name="Valpos" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false" sap:label="Value key" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="DomvalueL" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="Lower Value"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Ddtext" Type="Edm.String" Nullable="false" MaxLength="60" sap:unicode="false" sap:label="Short Descript."
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/></EntityType>
+			<Association Name="Material_InternalComment" sap:content-version="1"><End Type="ZMDG_MATERIAL_REQ_SRV.Material" Multiplicity="1" Role="FromRole_Material_InternalComment"/><End Type="ZMDG_MATERIAL_REQ_SRV.InternalComment" Multiplicity="*" Role="ToRole_Material_InternalComment"/>
+				<ReferentialConstraint>
+					<Principal Role="FromRole_Material_InternalComment"><PropertyRef Name="MaterialId"/></Principal>
+					<Dependent Role="ToRole_Material_InternalComment"><PropertyRef Name="MaterialId"/></Dependent>
+				</ReferentialConstraint>
+			</Association>
+			<Association Name="ChangeRequest_AttachmentMaster" sap:content-version="1"><End Type="ZMDG_MATERIAL_REQ_SRV.ChangeRequest" Multiplicity="1" Role="FromRole_ChangeRequest_AttachmentMaster"/><End Type="ZMDG_MATERIAL_REQ_SRV.AttachmentMaster" Multiplicity="*" Role="ToRole_ChangeRequest_AttachmentMaster"/>
+				<ReferentialConstraint>
+					<Principal Role="FromRole_ChangeRequest_AttachmentMaster"><PropertyRef Name="ChangeRequestId"/></Principal>
+					<Dependent Role="ToRole_ChangeRequest_AttachmentMaster"><PropertyRef Name="UsmdCrequest"/></Dependent>
+				</ReferentialConstraint>
+			</Association>
+			<Association Name="ASN_ChangeReuest_FormsUI" sap:content-version="1"><End Type="ZMDG_MATERIAL_REQ_SRV.ChangeRequest" Multiplicity="1" Role="FromRole_ASN_ChangeReuest_FormsUI"/><End Type="ZMDG_MATERIAL_REQ_SRV.RequestorForms" Multiplicity="*" Role="ToRole_ASN_ChangeReuest_FormsUI"/>
+				<ReferentialConstraint>
+					<Principal Role="FromRole_ASN_ChangeReuest_FormsUI"><PropertyRef Name="ChangeRequestId"/></Principal>
+					<Dependent Role="ToRole_ASN_ChangeReuest_FormsUI"><PropertyRef Name="Fieldname"/></Dependent>
+				</ReferentialConstraint>
+			</Association>
+			<Association Name="ASN_ChangeReuest_REQFILTER" sap:content-version="1"><End Type="ZMDG_MATERIAL_REQ_SRV.ChangeRequest" Multiplicity="1" Role="FromRole_ASN_ChangeReuest_REQFILTER"/><End Type="ZMDG_MATERIAL_REQ_SRV.RequestorFilter" Multiplicity="1" Role="ToRole_ASN_ChangeReuest_REQFILTER"/>
+				<ReferentialConstraint>
+					<Principal Role="FromRole_ASN_ChangeReuest_REQFILTER"><PropertyRef Name="ChangeRequestId"/></Principal>
+					<Dependent Role="ToRole_ASN_ChangeReuest_REQFILTER"><PropertyRef Name="Lob"/></Dependent>
+				</ReferentialConstraint>
+			</Association>
+			<Association Name="ChangeRequest_Material" sap:content-version="1"><End Type="ZMDG_MATERIAL_REQ_SRV.ChangeRequest" Multiplicity="1" Role="FromRole_ChangeRequest_Material"/><End Type="ZMDG_MATERIAL_REQ_SRV.Material" Multiplicity="1" Role="ToRole_ChangeRequest_Material"/>
+				<ReferentialConstraint>
+					<Principal Role="FromRole_ChangeRequest_Material"><PropertyRef Name="ChangeRequestId"/></Principal>
+					<Dependent Role="ToRole_ChangeRequest_Material"><PropertyRef Name="MaterialId"/></Dependent>
+				</ReferentialConstraint>
+			</Association>
+			<Association Name="ASN_REQFILTER_REQFORMUI" sap:content-version="1"><End Type="ZMDG_MATERIAL_REQ_SRV.RequestorFilter" Multiplicity="1" Role="FromRole_ASN_REQFILTER_REQFORMUI"/><End Type="ZMDG_MATERIAL_REQ_SRV.RequestorForms" Multiplicity="*" Role="ToRole_ASN_REQFILTER_REQFORMUI"/>
+				<ReferentialConstraint>
+					<Principal Role="FromRole_ASN_REQFILTER_REQFORMUI"><PropertyRef Name="Lob"/></Principal>
+					<Dependent Role="ToRole_ASN_REQFILTER_REQFORMUI"><PropertyRef Name="Fieldname"/></Dependent>
+				</ReferentialConstraint>
+			</Association>
+			<EntityContainer Name="ZMDG_MATERIAL_REQ_SRV_Entities" m:IsDefaultEntityContainer="true" sap:supported-formats="atom json xlsx"><EntitySet Name="SearchMaterials" EntityType="ZMDG_MATERIAL_REQ_SRV.SearchMaterial" sap:creatable="false" sap:updatable="false"
+				sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/><EntitySet Name="Attachments" EntityType="ZMDG_MATERIAL_REQ_SRV.Attachment" sap:creatable="false" sap:updatable="false"
+				sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/><EntitySet Name="Materials" EntityType="ZMDG_MATERIAL_REQ_SRV.Material" sap:searchable="true" sap:pageable="false" sap:addressable="false"
+				sap:content-version="1"/><EntitySet Name="InternalComments" EntityType="ZMDG_MATERIAL_REQ_SRV.InternalComment" sap:searchable="true" sap:pageable="false"
+				sap:addressable="false" sap:content-version="1"/><EntitySet Name="ChangeRequests" EntityType="ZMDG_MATERIAL_REQ_SRV.ChangeRequest" sap:searchable="true" sap:pageable="false"
+				sap:addressable="false" sap:content-version="1"/><EntitySet Name="UOMValueHelps" EntityType="ZMDG_MATERIAL_REQ_SRV.UOMValueHelp" sap:creatable="false" sap:updatable="false"
+				sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/><EntitySet Name="Guids" EntityType="ZMDG_MATERIAL_REQ_SRV.AttachmentMaster" sap:creatable="false" sap:updatable="false"
+				sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/><EntitySet Name="RequestorFilterSet" EntityType="ZMDG_MATERIAL_REQ_SRV.RequestorFilter" sap:creatable="false" sap:updatable="false"
+				sap:deletable="false" sap:pageable="false" sap:content-version="1"/><EntitySet Name="RequestorGroupsSet" EntityType="ZMDG_MATERIAL_REQ_SRV.RequestorGroups" sap:creatable="false" sap:updatable="false"
+				sap:deletable="false" sap:pageable="false" sap:content-version="1"/><EntitySet Name="RequestorFormsSet" EntityType="ZMDG_MATERIAL_REQ_SRV.RequestorForms" sap:creatable="false" sap:updatable="false"
+				sap:deletable="false" sap:pageable="false" sap:content-version="1"/><EntitySet Name="DomainValuesSet" EntityType="ZMDG_MATERIAL_REQ_SRV.DomainValues" sap:creatable="false" sap:updatable="false"
+				sap:deletable="false" sap:pageable="false" sap:content-version="1"/>
+				<AssociationSet Name="Material_InternalCommentSet" Association="ZMDG_MATERIAL_REQ_SRV.Material_InternalComment" sap:creatable="false"
+					sap:updatable="false" sap:deletable="false" sap:content-version="1"><End EntitySet="Materials" Role="FromRole_Material_InternalComment"/><End EntitySet="InternalComments" Role="ToRole_Material_InternalComment"/></AssociationSet>
+				<AssociationSet Name="ASN_ChangeReuest_FormsUISet" Association="ZMDG_MATERIAL_REQ_SRV.ASN_ChangeReuest_FormsUI" sap:creatable="false"
+					sap:updatable="false" sap:deletable="false" sap:content-version="1"><End EntitySet="ChangeRequests" Role="FromRole_ASN_ChangeReuest_FormsUI"/><End EntitySet="RequestorFormsSet" Role="ToRole_ASN_ChangeReuest_FormsUI"/></AssociationSet>
+				<AssociationSet Name="ChangeRequest_AttachmentMasterSet" Association="ZMDG_MATERIAL_REQ_SRV.ChangeRequest_AttachmentMaster"
+					sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1"><End EntitySet="ChangeRequests" Role="FromRole_ChangeRequest_AttachmentMaster"/><End EntitySet="Guids" Role="ToRole_ChangeRequest_AttachmentMaster"/></AssociationSet>
+				<AssociationSet Name="ASN_REQFILTER_REQFORMUISet" Association="ZMDG_MATERIAL_REQ_SRV.ASN_REQFILTER_REQFORMUI" sap:creatable="false"
+					sap:updatable="false" sap:deletable="false" sap:content-version="1"><End EntitySet="RequestorFilterSet" Role="FromRole_ASN_REQFILTER_REQFORMUI"/><End EntitySet="RequestorFormsSet" Role="ToRole_ASN_REQFILTER_REQFORMUI"/></AssociationSet>
+				<AssociationSet Name="ChangeRequest_MaterialSet" Association="ZMDG_MATERIAL_REQ_SRV.ChangeRequest_Material" sap:creatable="false"
+					sap:updatable="false" sap:deletable="false" sap:content-version="1"><End EntitySet="ChangeRequests" Role="FromRole_ChangeRequest_Material"/><End EntitySet="Materials" Role="ToRole_ChangeRequest_Material"/></AssociationSet>
+				<AssociationSet Name="ASN_ChangeReuest_REQFILTERSet" Association="ZMDG_MATERIAL_REQ_SRV.ASN_ChangeReuest_REQFILTER" sap:creatable="false"
+					sap:updatable="false" sap:deletable="false" sap:content-version="1"><End EntitySet="ChangeRequests" Role="FromRole_ASN_ChangeReuest_REQFILTER"/><End EntitySet="RequestorFilterSet" Role="ToRole_ASN_ChangeReuest_REQFILTER"/></AssociationSet>
+			</EntityContainer><atom:link rel="self"
+				href="https://webidecp-asei78rk8j.dispatcher.us3.hana.ondemand.com/destinations/FEX_050/sap/opu/odata/sap/ZMDG_MATERIAL_REQ_SRV/$metadata"
+				xmlns:atom="http://www.w3.org/2005/Atom"/><atom:link rel="latest-version"
+				href="https://webidecp-asei78rk8j.dispatcher.us3.hana.ondemand.com/destinations/FEX_050/sap/opu/odata/sap/ZMDG_MATERIAL_REQ_SRV/$metadata"
+				xmlns:atom="http://www.w3.org/2005/Atom"/></Schema>
+	</edmx:DataServices>
+</edmx:Edmx>
